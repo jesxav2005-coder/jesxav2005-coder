@@ -1,1 +1,128 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0A0F"/>
+      <stop offset="100%" stop-color="#170A14"/>
+    </linearGradient>
 
+    <linearGradient id="neonStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF10F0" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FF10F0" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FF10F0" stop-opacity="0"/>
+      <animateTransform attributeName="gradientTransform" type="translate"
+        values="-1200 0; 1200 0; -1200 0" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <linearGradient id="textGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FF10F0"/>
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur">
+        <animate attributeName="stdDeviation" values="5;8;5" dur="3s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <radialGradient id="glowSpot" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF10F0" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FF10F0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="url(#bg)"/>
+
+  <!-- Ambient glow spots (slow breathing pulse) -->
+  <circle cx="140" cy="70" r="220" fill="url(#glowSpot)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1080" cy="240" r="260" fill="url(#glowSpot)">
+    <animate attributeName="opacity" values="1;0.5;1" dur="4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Circuit line pattern (left) -->
+  <g stroke="#271C25" stroke-width="1.5" fill="none" opacity="0.9">
+    <path d="M0 40 H90 V90 H180"/>
+    <path d="M0 110 H60 V150 H150 V200"/>
+    <path d="M0 250 H120 V220 H210"/>
+  </g>
+  <!-- traveling energy pulses along left circuits -->
+  <g fill="none" stroke="#FF10F0" stroke-width="2" stroke-linecap="round">
+    <path d="M0 40 H90 V90 H180" stroke-dasharray="14 500" opacity="0.9">
+      <animate attributeName="stroke-dashoffset" from="0" to="-514" dur="3.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M0 110 H60 V150 H150 V200" stroke-dasharray="14 500" opacity="0.9">
+      <animate attributeName="stroke-dashoffset" from="0" to="-514" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </path>
+    <path d="M0 250 H120 V220 H210" stroke-dasharray="14 500" opacity="0.9">
+      <animate attributeName="stroke-dashoffset" from="0" to="-514" dur="3.6s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+  </g>
+  <g fill="#FF10F0">
+    <circle cx="90" cy="40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="90" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.4s"/></circle>
+    <circle cx="150" cy="150" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.8s"/></circle>
+    <circle cx="210" cy="220" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="1.2s"/></circle>
+  </g>
+
+  <!-- Circuit line pattern (right) -->
+  <g stroke="#271C25" stroke-width="1.5" fill="none" opacity="0.9">
+    <path d="M1200 60 H1110 V110 H1020"/>
+    <path d="M1200 130 H1140 V170 H1050 V210"/>
+    <path d="M1200 260 H1080 V230 H990"/>
+  </g>
+  <!-- traveling energy pulses along right circuits -->
+  <g fill="none" stroke="#FF10F0" stroke-width="2" stroke-linecap="round">
+    <path d="M1200 60 H1110 V110 H1020" stroke-dasharray="14 500" opacity="0.9">
+      <animate attributeName="stroke-dashoffset" from="0" to="514" dur="3.4s" repeatCount="indefinite" begin="0.3s"/>
+    </path>
+    <path d="M1200 130 H1140 V170 H1050 V210" stroke-dasharray="14 500" opacity="0.9">
+      <animate attributeName="stroke-dashoffset" from="0" to="514" dur="4.2s" repeatCount="indefinite" begin="0.9s"/>
+    </path>
+    <path d="M1200 260 H1080 V230 H990" stroke-dasharray="14 500" opacity="0.9">
+      <animate attributeName="stroke-dashoffset" from="0" to="514" dur="3.8s" repeatCount="indefinite" begin="1.4s"/>
+    </path>
+  </g>
+  <g fill="#FF10F0">
+    <circle cx="1110" cy="60" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.2s"/></circle>
+    <circle cx="1020" cy="110" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.6s"/></circle>
+    <circle cx="1050" cy="170" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="1s"/></circle>
+    <circle cx="990" cy="230" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="1.4s"/></circle>
+  </g>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#neonStroke)"/>
+  <!-- Bottom accent line -->
+  <rect x="0" y="297" width="1200" height="3" fill="url(#neonStroke)"/>
+
+  <!-- Small tag above name -->
+  <text x="600" y="98" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="15" letter-spacing="6" fill="#FF10F0" opacity="0.85">COMPUTER&#160;SCIENCE&#160;ENGINEERING</text>
+
+  <!-- Main name (glow pulses gently) -->
+  <text x="600" y="168" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="64" fill="url(#textGlow)" filter="url(#glow)" letter-spacing="2">JESHINTHA X</text>
+
+  <!-- Underline accent (expands in) -->
+  <rect x="600" y="188" width="0" height="2.5" fill="#FF10F0" filter="url(#softGlow)">
+    <animate attributeName="x" values="600;480;480" dur="2s" begin="0.3s" fill="freeze"/>
+    <animate attributeName="width" values="0;240;240" dur="2s" begin="0.3s" fill="freeze"/>
+  </rect>
+
+  <!-- Subtitle -->
+  <text x="600" y="228" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="18" fill="#B08A9E" letter-spacing="1">Full-Stack Developer &#183; React &#183; FastAPI &#183; AI-Assisted Builder</text>
+
+  <!-- Bottom tag line -->
+  <text x="600" y="262" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="14" fill="#FF10F0" opacity="0.6" letter-spacing="3">NATIONAL-LEVEL&#160;BOXER&#160;&#8226;&#160;NCC&#160;CADET&#160;&#8226;&#160;BUILDER</text>
+</svg>
